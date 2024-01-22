@@ -8,3 +8,6 @@ class MusicianModel(models.Model):
     email = models.EmailField()
     phone_number = models.IntegerField()
     instrument_type = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.First_name

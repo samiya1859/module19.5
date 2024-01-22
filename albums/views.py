@@ -7,6 +7,7 @@ from django.contrib.auth.decorators import login_required
 from django.views.generic import CreateView,UpdateView,DeleteView,DetailView
 from . import models
 from . import forms
+from django.contrib import messages
 # Create your views here.
 
 
@@ -16,7 +17,7 @@ class AddAlbumView(CreateView):
     model = models.AlbumModel
     form_class = forms.AlbumModelForm
     template_name = 'add_album.html'
-    success_url = reverse_lazy('musician')
+    success_url = reverse_lazy('add_album')
     def form_valid(self, form):
         form.instance.musicians = self.request.user
         return super().form_valid(form)
@@ -38,7 +39,7 @@ class EditAlbumView(UpdateView):
 class DeleteAlbumView(DeleteView):
     model = models.AlbumModel
     template_name = 'delete.html'
-    success_url = reverse_lazy('musician')
+    success_url = reverse_lazy('home')
     pk_url_kwarg='id'
 
 

@@ -22,7 +22,7 @@
               </li>
               {% if request.user.is_authenticated %}
               <li class="nav-item">
-                <a class="nav-link" href="{% url "add_musician" %}">Add Musician</a>
+                <a class="nav-link" href="{% url "addMusician" %}">Add Musician</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{% url "add_album" %}">Add Album</a>
@@ -36,7 +36,7 @@
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               {% if request.user.is_authenticated %}
               <li class="nav-item mx-3">
-                  <a class="btn btn-info nav-link active" aria-current="page" href="#">Profile</a>
+                  <a class="btn btn-info nav-link active" aria-current="page" href="{% url "musician" request.user.id %}">Profile</a>
                 </li>
                 <li class="nav-item mx-3">
                   <a class="btn btn-warning nav-link active" aria-current="page" href="{% url "user_logout" %}">Log Out</a>

@@ -19,17 +19,17 @@
 <tbody>
     {% for al in data %}
     <tr>
-        <td>{{al.musicians.id}}</td>
-        <td><a href="{% url "edit_musician" %}">{{al.musicians.First_name}} {{al.musicians.Last_name}}</a></td>
-        <td>{{al.musicians.email}}</td>
+        <td>{{al.MusicianName.id}}</td>
+        <td><a href="{% url "edit_musician" al.MusicianName.id %}">{{al.MusicianName.First_name}} {{al.MusicianName.Last_name}}</a></td>
+        <td>{{al.MusicianName.email}}</td>
         <td>{{al.rating}}</td>
-        <td>{{al.musicians.instrument_type}}</td>
+        <td>{{al.MusicianName.instrument_type}}</td>
         <td>{{al.AlbumName}}</td>
         <td>{{al.releaseDate}}</td>
         {% if request.user.is_authenticated %}
         <td>
-            <a class="btn btn-warning text-white" href="{% url "edit_album" %}">Edit</a>
-            <a class="btn btn-danger text-white" href="{% url "delete_album" %}">Delete</a>
+            <a class="btn btn-warning text-white" href="{% url "edit_album" al.id %}">Edit</a>
+            <a class="btn btn-danger text-white" href="{% url "delete_album" al.id %}">Delete</a>
         </td>
         {% endif %}
     </tr>
